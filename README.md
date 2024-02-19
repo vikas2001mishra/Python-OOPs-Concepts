@@ -965,6 +965,587 @@ s.display1()
 
 
 
+
+
+
+
+
+
+
+# IV. {POLYMORPHISM} ->
+           1.polymorphism means many forms.
+           2.It is made up of two words poly and forms. It's a geek term. 
+           3.Simply put, "Polymorphism means having many forms." 
+           4.Polymorphism is an ability by which a message is displayed in many forms.
+           5.The process of representing.one form in multiple forms is known as Polymorphism.
+           6. The ability to take more than one Form is called polymorphism.
+
+# Real life example of Polymorphism: -
+
+So let's look at a real life example. A lady is a teacher in the college. And that woman is a mother or a daughter in her house. 
+And there is a customer in the market. Here there are different forms according to the situations of a woman. This
+is called polymorphism.
+
+
+
+# For Example:-
+# 1.
+
+class India():
+	def capital(self):
+		print("New Delhi is the capital of India.")
+
+	def language(self):
+		print("Hindi is the most widely spoken language of India.")
+
+	def type(self):
+		print("India is a developing country.")
+
+class USA():
+	def capital(self):
+		print("Washington, D.C. is the capital of USA.")
+
+	def language(self):
+		print("English is the primary language of USA.")
+
+	def type(self):
+		print("USA is a developed country.")
+
+obj_ind = India()
+obj_usa = USA()
+for country in (obj_ind, obj_usa):
+	country.capital()
+	country.language()
+	country.type()
+
+
+
+
+
+ # 2. 
+
+ class Student:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def info(self):
+        #print("Student Name:",self.name)
+        #print("Student age",self.age)
+
+s = Student("Vikrant",22)
+s.info()
+
+
+
+
+# 3.
+
+class Bird:
+def intro(self):
+	print("There are many types of birds.")
+	
+def flight(self):
+	print("Most of the birds can fly but some cannot.")
+
+class sparrow(Bird):
+def flight(self):
+	print("Sparrows can fly.")
+	
+class ostrich(Bird):
+def flight(self):
+	print("Ostriches cannot fly.")
+	
+obj_bird = Bird()
+obj_spr = sparrow()
+obj_ost = ostrich()
+
+obj_bird.intro()
+obj_bird.flight()
+
+obj_spr.intro()
+obj_spr.flight()
+
+obj_ost.intro()
+obj_ost.flight()
+
+
+
+
+
+
+
+# Operator Overloading:-
+            -> Operator Overloading means giving extended meaning beyond their predefined operational meaning.
+            
+            # For example operator + is used to add two integers as well as join two strings and merge two lists. 
+            It is achievable because ‘+’ operator is overloaded by int class and str class. 
+            You might have noticed that the same built-in operator or function shows different behavior for objects of different classes, 
+            this is called Operator Overloading. 
+
+
+
+# 4.
+
+class Book:
+    def __init__(self,pages):
+        self.pages = pages
+    def __add__(self, other):
+        return self.pages+other.pages
+b1 = Book(100)
+b2 = Book(200)        #Magic Method
+print(b1+b2)
+
+
+
+# 5.
+
+class Book:
+    def __init__(self,pages):
+        self.pages = pages
+    def __mul__(self, other):
+        return self.pages*other.pages
+b1 = Book(100)
+b2 = Book(200)        #Magic Method
+print(b1*b2)
+
+
+
+
+
+
+
+# Method Overloading:-
+     -> Two or more methods have the same name but different Parameters or different  types of parameters i.e. called method overloading.
+     -> Python does not support method Querleading.
+
+
+# 6.
+
+class Test:
+    def m1(self):
+        print("Zero args method")
+    def m1(self,a):
+        print("One args method")
+    def m1(selfa,b):
+        print("Two args method")
+t = Test()
+t.m1(10)
+
+
+# 7.
+
+class Test:
+    def sum1(self,a = None,b = None,c = None):
+        if a!= None and b!= None and c!= None:
+            print("The sum of three value is:",a+b+c)
+        elif a!=None and b!=None:
+            print("The sum of two numbers:",a+b)
+        elif a!=None:
+            print("The sum of one numbers is:",a)
+        else:
+            print("At least provide one value")
+t=Test()
+t.sum1()
+t.sum1(10)
+t.sum1(10,20)
+t.sum1(10,20,30)
+
+
+
+
+# Method Overriding:->
+        -> whenever, we wilting method name with Same Signeture in parent and Child class called method overriding.
+        ->method Overriding avoids duplication of code.
+
+
+
+# 8.
+
+class P:
+    def property(self):
+        print('cash+gold+car+house')
+class C(P):
+    pass
+c = C()
+c.property()
+
+
+
+
+
+
+
+# Super method:->
+        -> n Python, the super() function is used to refer to the parent class or superclass. 
+        It allows you to call methods defined in the superclass from the subclass.
+
+# 9.
+
+class P:
+    def __init__(self):
+        print("Parent constructor")
+class C(P):
+    def __init__(self):
+        #super(). __init__()          #Super method
+        print("Child constuctor")
+c = C()
+
+
+
+
+
+
+
+
+
+
+
+# V. Encapsulation:->
+           -> Encapsulation means, binding variables and methods together into a single unit i.e. called Encapsulation.
+
+
+# 1.
+
+class Student:
+   def __init__(self, name="Tenali Rama", marks=50):
+      self.name = name
+      self.marks = marks
+
+s1 = Student()
+s2 = Student("Krishndev", 25)
+
+print ("Name: {} marks: {}".format(s1.name, s2.marks))
+print ("Name: {} marks: {}".format(s2.name, s2.marks))
+
+
+
+
+
+# 2. Problem Statement: 
+Add a new feature in the HR Management System that shows an employee’s salary and the project they are working on. 
+
+For this, we will create a class Employee and add some attributes like name, ID, salary, project, etc. As per the requirement, let’s add two required features (methods) – show_sal() to print the salary and proj() to print the project working on.
+
+
+
+
+class Employee:
+    # constructor
+    def __init__(self, name, id, salary, project):
+        # data members
+        self.name = name
+        self.id = id
+        self.salary = salary
+        self.project = project
+ 
+    # method to print employee's details
+    def show_sal(self):
+        # accessing public data member
+        print("Name: ", self.name, 'Salary:', self.salary)
+ 
+ 
+    def proj(self):
+        print(self.name, 'is working on', self.project)
+ 
+# creating object of a class
+emp = Employee('Rohit', 102, 100000, 'Python')
+ 
+# calling public method of the class
+emp.show_sal()
+emp.proj()
+
+
+
+
+# 3.
+
+class Employee:
+   def __init__(self, name, age):
+      self.name = name
+      self.age = age
+
+   def display(self):
+      print("Employee Name:", self.name)
+      print("Employee Age:", self.age)
+
+
+s = Employee("Kartik Singh", 22)
+s.display()
+
+
+
+
+
+
+
+
+# VI. Abstraction:-
+         -> Abstraction is hiding the unnecessary data & showing only essential part.
+         -> Abstraction in python is defined as a process of handling complexity by hiding unnecessary information from the user. 
+
+
+from abc import ABC, abstractmethod
+
+
+# 1.Examples of Data Abstraction
+Let us take some examples to understand the working of abstract classes in Python. Consider the Animal parent class and other child classes derived from it.
+
+
+
+
+class Animal(ABC):
+
+   # concrete method
+   def sleep(self):
+      print("I am going to sleep in a while")
+
+   @abstractmethod
+   def sound(self):
+      print("This function is for defining the sound by any animal")
+
+   pass
+
+
+class Snake(Animal):
+   def sound(self):
+      print("I can hiss")
+
+
+class Dog(Animal):
+   def sound(self):
+      print("I can bark")
+
+
+class Lion(Animal):
+   def sound(self):
+      print("I can roar")
+
+
+class Cat(Animal):
+   def sound(self):
+      print("I can meow")
+
+
+c = Cat()
+c.sleep()
+c.sound()
+
+c = Snake()
+c.sound()
+
+
+
+
+
+
+# Make Caluclator:
+
+# 1.Add,Sub,Mul,Div of two no.
+
+class Calculator:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+    def m1(self):
+        print('Add:',self.a + self.b)
+    def m2(self):
+        print('Sub:',self.a - self.b)
+    def m3(self):
+        print('Mul:',self.a * self.b)
+    def m4(self):
+        print('Div',self.a / self.b)
+t = Calculator()
+t.m1()
+t.m2()
+t.m3()
+t.m4()
+
+
+
+
+
+
+# 2.Add,Sub,Mul,Div of three no.
+
+
+class Calculator:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+        self.c = 30
+    def m1(self):
+        print('Add:',self.a + self.b + self.c)
+    def m2(self):
+        print('Sub:',self.a - self.b - self.c)
+    def m3(self):
+        print('Mul:',self.a * self.b * self.c)
+    def m4(self):
+        print('Div',self.a / self.b / self.c)
+t = Calculator()
+t.m1()
+t.m2()
+t.m3()
+t.m4()
+
+
+
+# 3. Calculation take the User Input:
+
+
+
+class Calculation1:
+    def Sum(self, a, b):
+        return a + b
+
+class Calculation2:
+    def sub(self, a, b):
+        return a - b
+
+class Calculation3:
+    def Mul(self, a, b):
+        return a * b
+
+class Div(Calculation1, Calculation3):
+    def Divide(self, a, b):
+        return a / b
+
+# Create instances of the classes
+calc1 = Calculation1()
+calc2 = Calculation2()
+calc3 = Calculation3()
+div = Div()
+
+# Get input from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+# Perform calculations using the methods of the classes
+print("Sum:", calc1.Sum(num1, num2))
+print("Sub:", calc2.sub(num1, num2))
+print("Mul:", calc3.Mul(num1, num2))
+print("Div:", div.Divide(num1, num2))
+
+
+
+
+
+
+# 4. Another Calculation Example:
+
+
+class P:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+
+    def add(self):
+        return self.num1 + self.num2
+
+class C1(P):
+    def subtract(self):
+        return self.num1 - self.num2
+
+class C2(P):
+    def multiply(self):
+        return self.num1 * self.num2
+
+class C3(P):
+    def divide(self):
+            return self.num1 / self.num2
+
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+r = P(num1, num2)
+
+c1 = C1(num1, num2)
+c2 = C2(num1, num2)
+c3 = C3(num1, num2)
+
+# Display the results
+print("\nResults:")
+print("Sum:", r.add())
+print("Subtraction:", c1.subtract())
+print("Multiplication:", c2.multiply())
+print("Division:", c3.divide())
+
+
+
+
+
+
+
+
+
+# Arithmetic Operation in oops concept in python:
+
+
+
+class Arith:
+    def add(self, a, b):
+        print("Addition by Arith:=", a + b)
+
+    def sub(self, a, b):
+        print("Subtraction by Arith:=", a - b)
+
+    def div(self, a, b):
+        print("Division by Arith:=", a / b)
+
+    def multi(self, a, b):
+        print("Multiplication by Arith:=", a * b)
+
+
+class Arith1(Arith):
+    def add(self, a, b):
+        print("Addition by Arith1:=", a + b)
+
+    def sub(self, a, b):
+        print("Subtraction by Arith1:=", a - b)
+
+    def div(self, a, b):
+        print("Division by Arith1:=", a / b)
+
+    def multi(self, a, b):
+        print("Multiplication by Arith1:=", a * b)
+
+
+class Arith2(Arith):
+    def add(self, a, b):
+        print("Addition by Arith2:=", a + b)
+
+    def sub(self, a, b):
+        print("Subtraction by Arith2:=", a - b)
+
+    def div(self, a, b):
+        print("Division by Arith2:=", a / b)
+
+    def multi(self, a, b):
+        print("Multiplication by Arith2:=", a * b)
+
+
+# result1 = Arith()
+# result1.add(10, 20)
+# result1.sub(60, 20)
+# result1.multi(10, 20)
+# result1.div(100, 20)
+
+# result2 = Arith()
+# result2.add(10, 2)
+# result2.sub(80, 20)
+# result2.multi(90, 20)
+# result2.div(70, 20)
+
+# result3 = Arith()
+# result3.add(10, 2)
+# result3.sub(80, 20)
+# result3.multi(90, 20)
+# result3.div(70, 20)
+
+res1 = Arith()
+res1.add(10,20)
+res2 = Arith2()
+res2.add(111,222)
+
+
       
 
 
