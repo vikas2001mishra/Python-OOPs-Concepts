@@ -1,4 +1,6 @@
 # Python-OOPs-Concepts
+
+
 I.Object:- .Everything exist in this world i.e.object, object have behaviour and properties. 
            .Object is runtime entity.
   .For Example:- 
@@ -19,6 +21,95 @@ print(Employee.__doc__)
 help(Employee)
 
 
+
+
+
+
+
+# What is --init---
+   # Constructor
+   # --init--- is a constructor method,and automatically called to allocate memory, when a new object is created.
+
+
+# What is Self() ---
+  # self is used to represent the instance(object) of the class.
+  
+  # self is a Python Provided implict default variable which is always pointing to current object.
+  # By using self we can access variables, metheds of corresponding objet.
+  # In Constructor self should be the Frist arg (argument).
+  # Self is the 1st argument in the instance method as well.
+
+
+
+
+
+  # Types of variable in Python:
+     1.Instance (Object level variable)
+     2.Static (Class level variable)
+     3.Local (Method level variable)
+     
+# 1.Instance variable:-
+                       For every object a seperate copy will be created.
+# 2.Static variable:-
+                       Only one copy will be created at the class level.
+                       
+
+# Types of methods:-
+         1. Instance methods (Object related method)
+         2. Static methods
+         3. class method
+
+   
+
+# Instance methods:-
+            -> Object related method.
+            -> Any method consists of Instance variable-Instance method,
+            -> Inside the instance method, First Keyword, i.e. self is compulsory.
+
+
+# Setter and getter methods:-
+      .Setter-> To set the value to the Instance variale (mutator method)->(other name Setter).
+      .getter-> To get the value to the Instance variable.,also knoen as (Accessor method).
+
+
+# Static methods:-
+            ->Inside methed if we are not using instance and static variables.
+            ->General utility method
+            ->@staticmethed
+
+# class method:-
+            ->Inside the methed Implementation of we are using only static variable (without Instance variables).
+            ->Atleast one Instance variable - instance method.
+            ->Instance method + Static variable -> Both are present (Instance method).
+           
+            @classmethod # Decorator
+            cls
+            we can call class method by using class or object ref.
+
+
+# Note:-
+     ->Instance methed - (No decorator required)
+     ->class method - @classmethed is (mandatory)
+     ->static method - @staticmethed is (optional)
+
+# Note:- 
+     ->Instance variables - (Instance method)
+     ->static variable - (class method)
+     ->Instance + Static- (Instance method)
+     ->Instance + local- (Instance method)
+     ->static + local (Class method)
+     ->local (static method)
+
+# No decorator:-  only two options.
+     ->Instance method
+     ->Static metheed
+     
+
+     
+                   
+
+
+   
 # 1.First Program:-
 
 class Employee:
@@ -606,6 +697,9 @@ h.Head()
 
 
 # 27.Garbage Collector...
+      ->GC is the part OF Python virtual machine.
+      ->GC is the process of removing any object which are not being used by any other object.
+
 
 import gc
 print(gc.isenabled())
@@ -624,7 +718,7 @@ print(gc.isenabled())
 
 
 
-III. INHERITANCE:-
+# III. INHERITANCE:-
       # Inheritance used code reusability.
       # Inheritance is a relationship between two or more classes.
       # Inheritance is a real world relationship.
@@ -632,6 +726,245 @@ III. INHERITANCE:-
   . Inheritance concept into two categories:-
         # Subclass(child class)
         # Superclass(Parent class)
+
+
+# 1.
+
+class Car:
+    def __init__(self,name,model,color):
+        self.name = name
+        self.model = model
+        self.color = color
+
+    def getinfo(self):
+        print("Car Name:",self.name)
+        print("Car Model:",self.model)
+        print("car color:",self.color)
+    def getinfo(self):
+        print("Car Model:" + self.name)
+c=Car("Maruti 800",800,"White")
+c.getinfo()
+
+
+
+# 2. 
+
+class Car:
+    def __init__(self,name,model,color):
+        self.name = name
+        self.model = model
+        self.color = color
+
+    def getinfo(self):
+        print("Car Name:",self.name)
+        print("Car Model:",self.model)
+        print("car color:",self.color)
+
+class Employee:
+    def __init__(self,eno,ename,car):
+        self.eno = eno
+        self.ename = ename
+        self.car = car
+
+    def empinfo(self):
+        print("Employee NO:",self.eno)
+        print("Employee Name:",self.ename)
+        print("car information--->")
+        self.car.getinfo()
+
+c=Car("Maruti 800",800,"White")
+e = Employee(100,"Satish",c)
+e.empinfo()
+
+
+
+
+
+# TYPES OF INHERITANCE:-
+-> TRICk- SMM HH
+
+1.Single Inheritance.
+2.Multilevel Inheritance.
+3.Multiple Inheritance.
+4.Hierarchical Inheritance.
+5.Hybrid Inheritance.
+
+
+# 1.Single Inheritance.->
+                      Single parent, single child. 
+
+# For Example->
+
+# 3.
+
+class P:
+    def  m1(self):
+        print("Parent method")
+class C(P):
+    def m2(self):
+        print("Child method")
+c=C()
+c.m1()
+c.m2()
+
+
+
+
+
+
+# 2.Multilevel Inheritance:->
+     -> In multilevel inheritance, features of the base class and the derived class are further inherited into the new derived class. 
+     This is similar to a relationship representing a child and a grandfather. 
+
+# 4.
+
+class P:
+    def m1(self):
+        print("Parent method")
+class C(P):
+    def m2(self):
+        print("Child method")
+class CC(C):
+    def m3(self):
+        print("Sub-child method")
+cc=CC()
+cc.m1()
+cc.m2()
+cc.m3()
+
+
+
+# 3.Multiple Inheritance:->
+       -> When a class is derived from more than one base class it is called multiple Inheritance. 
+
+
+# 5.
+
+class P1:
+    def m1(self):
+        print("Parent 1 method")
+class P2:
+    def m2(self):
+        print("Parent 2 method")
+class C(P1,P2):
+    def m3(self):
+        print("child method")
+c = C()
+c.m1()
+c.m2()
+c.m3()
+
+
+
+
+# 4.Hierarchical Inheritance.
+      -> Hierarchical Inheritance If multiple derived classes are created from the same base, 
+      this kind of Inheritance is known as hierarchical inheritance. 
+
+
+# 6.
+
+class P:
+    def m1(self):
+        print("Parent class")
+class C1(P):
+    def m2(self):
+        print("Child 1 method")
+class C2(P):
+    def m3(self):
+        print("Child 2 method")
+
+c = C1()
+c.m1()
+c.m2()
+#c1.m3()
+c = C2()
+c.m3()
+
+
+# 5.Hybrid Inheritance-> 
+           -> Hybrid Inheritance is a combination of multiple Inheritance and multilevel inheritance.
+
+
+# 7.
+
+class A:
+    def m1(self):
+        print("Class A method")
+class B(A):
+    def m2(self):
+        print("Class B method")
+class C(A):
+    def m3(self):
+        print("Class C method")
+class D(B,C):
+    def m4(self):
+        print("Class D method")
+
+d = D()
+d.m1()
+d.m2()
+d.m3()
+d.m4()
+
+
+
+
+
+
+
+# Super()->
+      which can be used to call parent class. Constructor, methods and variables from the child class.
+
+
+# 8.
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+class Student(Person):
+    def __init__(self,name,age,rollno,marks):
+        self.name = name
+        self.age = age
+        self.rollno = rollno
+        self.marks = marks
+    def display(self):
+        print(self.name)
+        print(self.age)
+        print(self.rollno)
+        print(self.marks)
+s = Student("Rahul",22,46,87)
+s.display()
+
+
+# 9.
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def display1(self):
+        print(self.name)
+        print(self.age)
+
+
+class Student(Person):
+    def __init__(self,name,age,rollno,marks):
+        super().__init__(name,age)
+        self.rollno = rollno
+        self.marks = marks
+
+    def display2(self):
+        super().display1()
+        print(self.rollno)
+        print(self.marks)
+s = Student("Rahul",22,46,87)
+s.display2()
+s.display1()
+
+
+
       
 
 
