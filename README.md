@@ -5,6 +5,8 @@ I.Object:- .Everything exist in this world i.e.object, object have behaviour and
            .Object is runtime entity.
   .For Example:- 
             obj = Dog()
+
+
 II.Class:- .Class is a template.
           .class is a blueprint of an object.
           .class is the best example of encapsulation.
