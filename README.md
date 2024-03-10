@@ -70,12 +70,12 @@ help(Employee)
 
 
 # Setter and getter methods:-
-      .Setter-> To set the value to the Instance variale (mutator method)->(other name Setter).
-      .getter-> To get the value to the Instance variable.,also knoen as (Accessor method).
+      .Setter-> To set the value to the Instance variable (mutator method)->(other name Setter).
+      .getter-> To get the value to the Instance variable.,also known as (Accessor method).
 
 
 # Static methods:-
-            ->Inside methed if we are not using instance and static variables.
+            ->Inside method if we are not using instance and static variables.
             ->General utility method
             ->@staticmethed
 
@@ -104,7 +104,7 @@ help(Employee)
 
 # No decorator:-  only two options.
      ->Instance method
-     ->Static metheed
+     ->Static method
      
 
      
