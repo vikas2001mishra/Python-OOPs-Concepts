@@ -36,9 +36,9 @@ help(Employee)
 # What is Self() ---
   # self is used to represent the instance(object) of the class.
   
-  # self is a Python Provided implict default variable which is always pointing to current object.
+  # self is a Python Provided implicit default variable which is always pointing to current object.
   # By using self we can access variables, metheds of corresponding objet.
-  # In Constructor self should be the Frist arg (argument).
+  # In Constructor self should be the first arg (argument).
   # Self is the 1st argument in the instance method as well.
 
 
