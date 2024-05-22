@@ -31,7 +31,7 @@ help(Employee)
 # What is --init---
    # Constructor
    # --init--- is a constructor method,and automatically called to allocate memory, when a new object is created.
-
+   # Constructor should take atleast one argumentthat is self
 
 # What is Self() ---
   # self is used to represent the instance(object) of the class.
