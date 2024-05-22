@@ -52,6 +52,11 @@ help(Employee)
      
 # 1.Instance variable:-
                        For every object a seperate copy will be created.
+		       #Where can we declare instance variables:
+
+                             #1. Inside constructor by using self variable
+                             #2. Inside instance method by using self variable
+                             #3. Outside of the class by using object reference variables
 # 2.Static variable:-
                        Only one copy will be created at the class level.
                        
