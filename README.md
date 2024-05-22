@@ -59,6 +59,22 @@ help(Employee)
                              #3. Outside of the class by using object reference variables
 # 2.Static variable:-
                        Only one copy will be created at the class level.
+
+	 #we are not require to maintain seperate copy of a variable Share the same copy
+         #One copy of static variable created at the class Level
+         
+# How to declare the static variable
+
+         #1. Directly create inside the class, Self is not associated 
+	 #2. Inside the constructor by using class name
+         #3. Inside instance method using class name
+         #4. Inside class method by using cls variable or class name
+         #5. Inside static method by using class name
+         #6. From outside the class as well
+
+
+# Static variable Only one copy will be created at the class Level
+# Instance Variable For every object a seperate copy will be created
                        
 
 # Types of methods:-
