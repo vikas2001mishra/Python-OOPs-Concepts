@@ -439,6 +439,9 @@ t.m2()
 t.m2()
 print(Test.__dict__)
 
+# Output:-
+
+{'__module__': '__main__', 'a': 10, '__init__': <function Test.__init__ at 0x10c8c6310>, 'm1': <function Test.m1 at 0x10c8c63a0>, 'm2': <classmethod object at 0x10c8c9940>, 'm3': <staticmethod object at 0x10c8c9910>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
 
 
 
@@ -455,14 +458,22 @@ t = Test()
 print(t.a) #Instance variable
 print(Test.a) #Static Variable
 
-
-
-
+# Output:-
+888
+777
 
 
 
 
 # 12.How to access the Static Variable...
+
+    #1. Inside the constructor Either by self or by class name
+    #2. Inside the Instance method Either by self or class name
+    #3. Inside the class method Either by cls or by class name
+    #4. Inside the static method By class name
+    #5. Outisde the class Either by object ref or by class name
+
+
 
 class Test:
     a = 10
@@ -487,14 +498,17 @@ t.m1()
 t.m2()
 t.m3()
 
+# Output:-
+10
+10
+10
+10
+10
+10
+10
 
 
 
-
-
-
-
-# 13.Where we can modify the value of Static variables:
 
 class Test:
     a = 10
@@ -503,11 +517,63 @@ class Test:
 t = Test()
 print(Test.a)
 
+# Output:-
+100
 
 
 
 
-# 14.
+
+
+# 13.Where we can modify the value of Static variables:
+        #By using the class name (Inside or outside the class) 
+	#Inside the class method by using cls variable also
+
+
+
+class Test:
+    a = 10  # Class variable
+
+    def __init__(self):
+        Test.a = 888  # Modify class variable in the constructor
+
+    def m1(self):
+        Test.a = 10000  # Modify class variable in an instance method
+
+    @classmethod
+    def m2(cls):
+        Test.a = 9090  # Modify class variable using the class name
+        cls.a = 2222   # Modify class variable using cls
+
+    @staticmethod
+    def m3():
+        Test.a = 22122  # Modify class variable in a static method
+
+# Create an instance of the Test class
+t = Test()
+print(Test.a)  # Should print 888 after the constructor is called
+
+t.m1()
+print(Test.a)  # Should print 10000 after calling instance method m1
+
+t.m2()
+print(Test.a)  # Should print 2222 after calling class method m2
+
+t.m3()
+print(Test.a)  # Should print 22122 after calling static method m3
+
+Test.a = 44322  # Modify class variable directly using the class name
+print(Test.a)  # Should print 44322
+
+# Output:-
+888
+10000
+2222
+22122
+44322
+
+
+
 
 class Test:
     a = 10
@@ -520,9 +586,140 @@ print(Test.a)
 t.m1()
 print(Test.a)
 
+# Output:-
+888
+999
 
 
 
+
+class Test:
+    a = 10
+    def __init__(self):
+        Test.a =  1000
+        a = 100
+        self.a = 90
+        print(self.a)
+        print(Test.a)
+        #print(b)
+
+    def m1(self):
+        b = 10
+        print(b)
+
+t = Test()
+t.m1()
+
+# Output:-
+
+90
+1000
+10
+
+
+
+
+class Test:
+    x = 10  # Class variable
+
+    def __init__(self):
+        self.y = 20  # Instance variable
+
+# Create two instances of the Test class
+t1 = Test()
+t2 = Test()
+
+# Print the initial values of t1 and t2
+print(t1.x, t1.y)  # Expected output: 10 20
+print(t2.x, t2.y)  # Expected output: 10 20
+
+# Modify t1's class variable and t2's instance variable
+t1.x = 888
+t2.y = 1000
+
+# Print the values after modification
+print(t1.x, t1.y)  # Expected output: 888 20
+print(t2.x, t2.y)  # Expected output: 10 1000
+
+
+# Output:-
+10 20
+10 20
+888 20
+10 1000
+
+
+
+
+
+class Test:
+    a = 10  # Class variable
+
+    def __init__(self):  # Correct constructor method
+        self.b = 20  # Instance variable
+
+    def m1(self):
+        self.a = 888  # Creates an instance variable 'a' for t1
+        self.b = 999  # Modifies the instance variable 'b'
+
+# Create two instances of the Test class
+t1 = Test()
+t2 = Test()
+
+# Call method m1 on t1 to modify its variables
+t1.m1()
+
+# Print the values of instance and class variables for t1
+print(t1.a, t1.b)  # Expected output: 888 999
+
+# Print the values of instance and class variables for t2
+print(t2.a, t2.b)  # Expected output: 10 20 (t2 remains unaffected by t1's method call)
+
+
+# Output:-
+888 999
+10 20
+
+
+
+
+
+
+class Test:
+    a = 10  # Class variable
+
+    def __init__(self):
+        self.b = 20  # Instance variable
+
+    @classmethod
+    def m1(cls):
+        cls.a = 888  # Modify class variable 'a'
+        # cls.b = 999  # This will cause an error because 'b' is not a class variable
+
+# Create two instances of the Test class
+t1 = Test()
+t2 = Test()
+
+# Call the class method m1 on t1
+t1.m1()
+
+# Print the values of instance and class variables for t1
+print(t1.a, t1.b)  # Expected output: 888 20
+
+# Print the values of instance and class variables for t2
+print(t2.a, t2.b)  # Expected output: 888 20 (class variable 'a' is shared)
+
+# Print the values of the class variable directly from the class
+print(Test.a)      # Expected output: 888
+
+# Trying to print Test.b will raise an AttributeError because 'b' is an instance variable, not a class variable
+# print(Test.b)    # Uncommenting this line will raise an AttributeError
+
+
+# Output:-
+888 20
+888 20
+888
 
 
 
@@ -540,8 +737,9 @@ t = Test()
 t.m1()
 t.m2()
 
-
-
+# Output:-
+100
+200
 
 
 
@@ -549,6 +747,11 @@ t.m2()
 
 
 # 16. Instance Method---
+      -> Object related method.
+      -> Any method consists of Instance variable-Instance method,
+      -> Inside the instance method, First Keyword, i.e. self is compulsory.
+
+
 
 class Student:
     def __init__(self,name,marks):
@@ -571,6 +774,10 @@ s.display()
 s.grade()
 
 
+# Output:-
+hi Rahul
+your marks are: 69
+you got 1st div.
 
 
 
@@ -582,6 +789,12 @@ s.grade()
 
 
 # 17.Setter and Getter Concept ............ ReCheck
+
+        .Setter-> To set the value to the Instance variable (mutator method)->(other name Setter).
+        .getter-> To get the value to the Instance variable.,also known as (Accessor method).
+
+
+ 
 class Student:
     def setName(self,name):
         self.name = name
@@ -592,21 +805,32 @@ class Student:
     def getMarks(self):
         return self.marks
 l = []
-n = int(input("Enter the name of the  student"))
+n = int(input("Enter the name of the  student: "))
 for i in range(n):
     s = Student()
-    name = input("Enter the student name")
-    marks = int(input("Enter marks"))
+    name = input("Enter the student name: ")
+    marks = int(input("Enter marks: "))
     s.setName(name)
     s.setMarks(marks)
     l.append(s)
 for s in l:
-    print("Student Name",s.getName())
-    print("Student Marks",s.getMarks())
+    print("Student Name: ",s.getName())
+    print("Student Marks: ",s.getMarks())
     print()
 
 
+# Output:-
 
+Enter the name of the  student: 2
+Enter the student name: Ram
+Enter marks: 87
+Enter the student name: Shyam
+Enter marks: 90
+Student Name:  Ram
+Student Marks:  87
+
+Student Name:  Shyam
+Student Marks:  90
 
 
 
@@ -617,6 +841,15 @@ for s in l:
 
 
 # 18.Class Method:-
+            ->Inside the methed Implementation of we are using only static variable (without Instance variables).
+            ->Atleast one Instance variable - instance method.
+            ->Instance method + Static variable -> Both are present (Instance method).
+           
+            @classmethod # Decorator
+            cls
+            we can call class method by using class or object ref.
+
+
 
 class Employee:
     total_emp = 10
@@ -624,6 +857,12 @@ class Employee:
     def totemp(cls,compname):
         print("{} has total {} employees".format(compname,cls.total_emp))
 Employee.totemp('TCS')
+
+# Output:-
+TCS has total 10 employees
+
+
+
 
 
 # 19.
@@ -640,16 +879,45 @@ t2 = Test()
 t3 = Test()
 Test.noofobj()
 
+# Output:-
+The no of object created 3
 
 
 
 
+class Test:
+    count = 0  # Class variable to keep track of the number of instances
 
+    def __init__(self):
+        Test.count += 1  # Increment the class variable count when a new instance is created
+
+    @staticmethod
+    def noofobj(x, y):
+        print(x + y)
+
+# Create an instance of the Test class
+t = Test()
+
+# Call the static method noofobj with arguments 10 and 20
+t.noofobj(10, 20)
+
+# Output the number of instances created
+print("Number of instances created:", Test.count)
+
+
+# Output:-
+30
+Number of instances created: 1
 
 
 
 
 # 20.static method:-
+            ->Inside method if we are not using instance and static variables.
+            ->General utility method
+            ->@staticmethed
+	    
+
 
 class Rahulmarks:
     @staticmethod
@@ -666,8 +934,10 @@ Rahulmarks.product(10,20)
 Rahulmarks.average(10,20)
 
 
-
-
+# Output:-
+the sum is: 30
+the product is: 200
+the avg is: 15.0
 
 
 
