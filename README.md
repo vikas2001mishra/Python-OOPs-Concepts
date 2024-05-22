@@ -283,6 +283,84 @@ t.m1()
 
 
 
+# How to delete the instance variables 
+    #del self.variablename within the class
+
+class Test:
+    def __init__(self):
+        self.a = 10
+        self.b = 20
+        self.c = 30
+        self.d = 40
+
+    def m1(self):
+        del self.b
+
+#Create an instance of the Test class
+t = Test()
+
+#Print the instance variables before deletion
+print("Before deletion:", t.__dict__)
+
+#Call the method m1 to delete the instance variable 'b'
+t.m1()
+
+#Print the instance variables after deletion
+print("After deletion:", t.__dict__)
+
+
+# Output:-
+
+Before deletion: {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+After deletion: {'a': 10, 'c': 30, 'd': 40}
+
+
+
+# Example:
+
+class Test:
+
+    def __init__(self):  # Correct the constructor method name
+        self.a = 10
+
+    def m1(self):
+        self.a = 777
+        self.b = 888
+
+#Create an instance of the Test class
+t = Test()
+
+#Print the instance variables before calling m1
+print(t.__dict__)  # Note: Use double underscores for __dict__
+
+#Call the method m1 to modify instance variables
+t.m1()
+
+#Print the instance variables after calling m1
+print(t.__dict__)
+
+#Modify instance variable 'b' and add new instance variable 'c'
+t.b = 1000
+
+#Print the instance variables after modifying 'b'
+print(t.__dict__)
+
+#Add new instance variable 'c'
+t.c = 2000
+
+#Print the instance variables after adding 'c'
+print(t.__dict__)
+
+
+# Output:-
+
+{'a': 10}
+{'a': 777, 'b': 888}
+{'a': 777, 'b': 1000}
+{'a': 777, 'b': 1000, 'c': 2000}
+
+
+
 
 # 8. write Fibonacci series up to n
 
