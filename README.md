@@ -27,7 +27,6 @@ help(Employee)
 
 
 
-
 # What is --init---
    # Constructor
    # --init--- is a constructor method,and automatically called to allocate memory, when a new object is created.
@@ -945,6 +944,7 @@ the avg is: 15.0
 
 # 21. Passing The members of one class to another ......?
 
+
 class Employee:
     def __init__(self,eno,ename,esal):
         self.eno = eno
@@ -966,6 +966,12 @@ e = Employee(100,"Rahul",15000)
 Test.Modify(e)
 
 
+# Output:-
+Emoloyee No: 100
+Emoloyee Name: Rahul
+Employee Sal: 25000
+
+
 
 # 22.
 
@@ -976,10 +982,9 @@ e = Test()
 e.Modify() #Instance
 Test.Modify(56) #Static Method
 
-
-
-
-
+# Output:-
+Hello
+Hello
 
 
 
@@ -1008,6 +1013,11 @@ i = o.Inner()
 i.m1()
 
 
+# Output:-
+outer class object creation...
+Inner class object creation...
+Ineer Class Method
+
 
 # 24.
 
@@ -1025,6 +1035,15 @@ class Outer:
 i =Outer().Inner().InnerInner().m1()
 
 
+# Output:-
+outer class object creation...
+Inner class object creation...
+Inner Inner clas object creation...
+Inner Inner class Method
+
+
+
+
 # 25.
 
 class Human:
@@ -1034,6 +1053,10 @@ class Human:
         print("Hello",self.name)
 h=Human()
 h.display()
+
+# Output:-
+Hello Rahul
+
 
 
 # 26.
@@ -1060,6 +1083,94 @@ h.display()
 h.Head()
 
 
+# Output:-
+Hello Rahul
+Talking.....
+Thinking...
+
+
+
+
+
+
+class Customer:
+    def __init__(self, name, dd, mm, yyyy):
+        self.name = name
+        self.dob = DOB(dd, mm, yyyy)
+
+    def display(self):
+        print('Customer Name:', self.name)
+        self.dob.display()
+
+class DOB:
+    def __init__(self, dd, mm, yyyy):
+        self.dd = dd
+        self.mm = mm
+        self.yyyy = yyyy
+
+    def display(self):
+        print('DOB={}/{}/{}'.format(self.dd, self.mm, self.yyyy))
+
+# Create a Customer object
+c = Customer('R', 10, 11, 2010)
+
+# Display the customer details
+c.display()
+
+
+
+# Output:-
+Customer Name: R
+DOB=10/11/2010
+
+
+
+
+class Test:
+    def m1(self):
+        a, b = 10, 20
+        print('The sum is:', a + b)
+        print('The diff is:', a - b)
+        print('The mul is:', a * b)
+        print('The div is:', a / b)
+        print()
+
+        a, b = 100, 200
+        print('The sum is:', a + b)
+        print('The diff is:', a - b)
+        print('The mul is:', a * b)
+        print('The div is:', a / b)
+        print()
+
+        a, b = 1000, 2000
+        print('The sum is:', a + b)
+        print('The diff is:', a - b)
+        print('The mul is:', a * b)
+        print('The div is:', a / b)
+        print()
+
+# Create an instance of the Test class
+t = Test()
+
+# Call the method m1
+t.m1()
+
+
+# Output:-
+The sum is: 30
+The diff is: -10
+The mul is: 200
+The div is: 0.5
+
+The sum is: 300
+The diff is: -100
+The mul is: 20000
+The div is: 0.5
+
+The sum is: 3000
+The diff is: -1000
+The mul is: 2000000
+The div is: 0.5
 
 
 
