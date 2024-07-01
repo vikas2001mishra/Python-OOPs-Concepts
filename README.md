@@ -1598,7 +1598,7 @@ print(b1*b2)
 
 # Method Overloading:-
      -> Two or more methods have the same name but different Parameters or different  types of parameters i.e. called method overloading.
-     -> Python does not support method Querleading.
+     -> Python does not support method Overloading.
 
 
 # 6.
@@ -1636,7 +1636,7 @@ t.sum1(10,20,30)
 
 
 # Method Overriding:->
-        -> whenever, we wilting method name with Same Signeture in parent and Child class called method overriding.
+        -> whenever, we writing method name with Same Signeture in parent and Child class called method overriding.
         ->method Overriding avoids duplication of code.
 
 
