@@ -416,32 +416,45 @@ print(f100)
 # 10.Static Variables......
 
 class Test:
-    a = 10 #static variable
+    a = 100  # static variable
+
     def __init__(self):
-        Test.b = 20
+        self.b = 200
+
     def m1(self):
-        Test.c = 30
+        self.c = 300
+
     @classmethod
     def m2(cls):
-        cls.d = 40
-        Test.e = 50
+        cls.d = 400
+        Test.e = 500
+
     @staticmethod
     def m3():
-        Test.f = 60
-#print(Test.___dict__)
+        Test.f = 600
+
+# Create an instance of Test
 t = Test()
-#print(Test.__dict__)
+print(Test.__dict__)  # Initial state
+
+# Call the instance method m1
 t.m1()
-#print(Test.__dict__)
+print(Test.__dict__)  # After calling m1
+
+# Call the class method m2
 t.m2()
-#print(Test.__dict__)
+print(Test.__dict__)  # After calling m2 once
+
+# Call the class method m2 again
 t.m2()
-print(Test.__dict__)
+print(Test.__dict__)  # After calling m2 again
 
 # Output:-
 
-{'__module__': '__main__', 'a': 10, '__init__': <function Test.__init__ at 0x10c8c6310>, 'm1': <function Test.m1 at 0x10c8c63a0>, 'm2': <classmethod object at 0x10c8c9940>, 'm3': <staticmethod object at 0x10c8c9910>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
-
+{'__module__': '__main__', 'a': 100, '__init__': <function Test.__init__ at 0x1047d5280>, 'm1': <function Test.m1 at 0x1047d53a0>, 'm2': <classmethod object at 0x10478a2e0>, 'm3': <staticmethod object at 0x104825fd0>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None}
+{'__module__': '__main__', 'a': 100, '__init__': <function Test.__init__ at 0x1047d5280>, 'm1': <function Test.m1 at 0x1047d53a0>, 'm2': <classmethod object at 0x10478a2e0>, 'm3': <staticmethod object at 0x104825fd0>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None}
+{'__module__': '__main__', 'a': 100, '__init__': <function Test.__init__ at 0x1047d5280>, 'm1': <function Test.m1 at 0x1047d53a0>, 'm2': <classmethod object at 0x10478a2e0>, 'm3': <staticmethod object at 0x104825fd0>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None, 'd': 400, 'e': 500}
+{'__module__': '__main__', 'a': 100, '__init__': <function Test.__init__ at 0x1047d5280>, 'm1': <function Test.m1 at 0x1047d53a0>, 'm2': <classmethod object at 0x10478a2e0>, 'm3': <staticmethod object at 0x104825fd0>, '__dict__': <attribute '__dict__' of 'Test' objects>, '__weakref__': <attribute '__weakref__' of 'Test' objects>, '__doc__': None, 'd': 400, 'e': 500}
 
 
 
