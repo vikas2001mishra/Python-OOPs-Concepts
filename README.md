@@ -1109,8 +1109,7 @@ Thinking...
 
 
 
-
-
+# defines a Customer class and a DOB class to represent a customer's date of birth. 
 
 class Customer:
     def __init__(self, name, dd, mm, yyyy):
@@ -1143,7 +1142,7 @@ Customer Name: R
 DOB=10/11/2010
 
 
-
+# defines a Test class with a method m1 that performs and prints arithmetic operations (sum, difference, multiplication, and division) on three different pairs of numbers.
 
 class Test:
     def m1(self):
