@@ -812,24 +812,26 @@ class Student:
         self.name = name
     def getName(self):
         return self.name
+
     def setMarks(self,marks):
         self.marks = marks
     def getMarks(self):
         return self.marks
-l = []
-n = int(input("Enter the name of the  student: "))
-for i in range(n):
+
+students_list = []
+num_students = int(input("Enter the number of the Student:"))
+for i in range(num_students):
     s = Student()
-    name = input("Enter the student name: ")
-    marks = int(input("Enter marks: "))
+    name = input("Enter the Student name:")
+    marks = input("Enter marks:")
     s.setName(name)
     s.setMarks(marks)
-    l.append(s)
-for s in l:
-    print("Student Name: ",s.getName())
-    print("Student Marks: ",s.getMarks())
-    print()
+    students_list.append(s)
 
+for s in students_list:
+    print("Student Name:",s.getName())
+    print("Student Marks:",s.getMarks())
+    print()
 
 # Output:-
 
