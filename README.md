@@ -1024,7 +1024,7 @@ class Outer:
             print("Inner class object creation...")
 
         def m1(self):
-            print("Ineer Class Method")
+            print("Inner Class Method")
 
 #i = Outer().Inner().m1()
 o = Outer()
