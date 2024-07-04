@@ -961,24 +961,28 @@ the avg is: 15.0
 
 
 class Employee:
-    def __init__(self,eno,ename,esal):
+    def __init__(self, eno, ename, esal):
         self.eno = eno
         self.ename = ename
         self.esal = esal
 
     def display(self):
-        print("Emoloyee No:",self.eno)
-        print("Emoloyee Name:",self.ename)
-        print("Employee Sal:",self.esal)
+        print("Employee No:", self.eno)
+        print("Employee Name:", self.ename)
+        print("Employee Salary:", self.esal)
 
 class Test:
-    def Modify(emp):
-        emp.esal = emp.esal+10000
+    @staticmethod
+    def modify(emp):
+        emp.esal += 10000
         emp.display()
 
-e = Employee(100,"Rahul",15000)
-#e.display()
-Test.Modify(e)
+# Create an Employee object
+e = Employee(100, "Rahul", 15000)
+
+# Modify the employee's salary and display the details
+Test.modify(e)
+
 
 
 # Output:-
