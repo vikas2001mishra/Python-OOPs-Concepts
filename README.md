@@ -1423,18 +1423,21 @@ class Person:
     def __init__(self,name,age):
         self.name = name
         self.age = age
-class Student(Person):
-    def __init__(self,name,age,rollno,marks):
+
+class Student:
+    def __init__(self,name,age,Rollno,marks):
         self.name = name
         self.age = age
-        self.rollno = rollno
+        self.Rollno = Rollno
         self.marks = marks
+
     def display(self):
-        print(self.name)
-        print(self.age)
-        print(self.rollno)
-        print(self.marks)
-s = Student("Rahul",22,46,87)
+        print("Name:",self.name)
+        print("Age:",self.age)
+        print("Roll no:",self.Rollno)
+        print("Marks:",self.marks)
+
+s = Student("Aman",22,3,68)
 s.display()
 
 
@@ -1445,8 +1448,8 @@ class Person:
         self.name = name
         self.age = age
     def display1(self):
-        print(self.name)
-        print(self.age)
+        print("Name:",self.name)
+        print("Age:",self.age)
 
 
 class Student(Person):
@@ -1457,12 +1460,11 @@ class Student(Person):
 
     def display2(self):
         super().display1()
-        print(self.rollno)
-        print(self.marks)
+        print("Rollno:",self.rollno)
+        print("marks:",self.marks)
 s = Student("Rahul",22,46,87)
 s.display2()
 s.display1()
-
 
 
 
