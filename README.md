@@ -1673,6 +1673,44 @@ c.property()
 
 
 
+# Other Example.
+
+class P:
+    def property(self):
+        print("Gold", "money", "car")
+
+class C(P):
+    def job(self):
+        print("Software Engineer")
+
+c = C()
+c.property()  # Calls the method from the parent class
+c.job()       # Calls the method from the child class
+
+
+
+# Other Example.
+
+
+class Animal:
+    def sound(self):
+        print("This is a generic animal sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog:","Bark")
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat:","Meow")
+
+# Create instances of Dog and Cat
+dog = Dog()
+cat = Cat()
+
+# Call the sound method on each instance
+dog.sound()  # Output: Bark
+cat.sound()  # Output: Meow
 
 
 
@@ -1681,7 +1719,27 @@ c.property()
         -> n Python, the super() function is used to refer to the parent class or superclass. 
         It allows you to call methods defined in the superclass from the subclass.
 
-# 9.
+# 9.Example Using super()
+
+class Animal:
+    def sound(self):
+        print("This is a generic animal sound")
+
+class Dog(Animal):
+    def sound(self):
+        super().sound()
+        print("Dog:","Bark")
+
+# Create an instance of Dog
+dog = Dog()
+
+# Call the sound method
+dog.sound()
+
+
+
+# Other Example:
+
 
 class P:
     def __init__(self):
